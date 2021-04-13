@@ -1,0 +1,10 @@
+[Unit]
+Description=streaming if time correct
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/streaming/streaming.bash
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Check if streaming should be on every hour
+After=network.target
+
+[Timer]
+OnCalendar=hourly
+OnBootSec=0
+
+[Install]
+WantedBy=timers.target
