@@ -2,7 +2,8 @@
 Start and stop Snapcast server depending on the hour.
 
 # Installation
-```cd /opt
+```
+cd /opt
 sudo git clone https://github.com/gotling/streaming.git
 cd streaming
 sudo ./install.sh
