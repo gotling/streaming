@@ -24,6 +24,7 @@ if [ ! -f "$SYSTEMD/$TIMER" ]; then
     ln -s $APP/$TIMER $SYSTEMD
 fi
 
+systemctl disable snapserver
 systemctl enable streaming
 systemctl enable streaming.timer
 systemctl daemon-reload
