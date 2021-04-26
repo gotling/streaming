@@ -44,21 +44,21 @@ Password: **raspberry**
 
 `sudo raspi-config`
 
-*1 System Options, S3 Password*
+### 1 System Options, S3 Password
 
 Set a new password. This will be used for SSH access.
 
-*1 System Options, S4 Hostname*
+### 1 System Options, S4 Hostname
 
 This is how the pi is shown in the network.
 
 Hostname: **streaming-server** or **streaming-kitchen**
 
-*5 Localisation Options, L1 Locale*
+### 5 Localisation Options, L1 Locale
 
 Just select OK to accept defaults and generate locale for **en_GB.UTF-8**.
 
-*5 Localisation Options, L2 Timezone*
+### 5 Localisation Options, L2 Timezone
 
 Choose correct time zone.
 
@@ -74,7 +74,7 @@ Comment `dtparam=audio=on`
 
 Add `dtoverlay=hifiberry-dacplusadc`
 
-*Install Snapcast Server*
+### Install Snapcast Server
 
 Download the latest snapserver armhf.deb from https://github.com/badaix/snapcast/releases/latest.
 
@@ -84,7 +84,7 @@ Install it:
 
 `sudo apt install ./snapserver*.deb`
 
-*Configure Snapcast server*
+### Configure Snapcast server
 
 Edit `/etc/snapserver.conf`
 
@@ -96,7 +96,7 @@ Add `source = alsa://?name=analog&sampleformat=44100:16:2&device=hw:0,0&send_sil
 
 ## Configure client
 
-*Install Snapcast Client*
+### Install Snapcast Client
 
 Download the latest snapclient without-pulse_armhf.deb from https://github.com/badaix/snapcast/releases/latest.
 
@@ -112,7 +112,9 @@ Increase sound volume:
 
 Change it to 86% or higher.
 
-*If ip for server is made static, configure it in the client*
+### If using fixed ip
+
+If ip of the server is fixed, configure it in the client:
 
 `sudo nano /etc/default/snapclient`
 
@@ -123,7 +125,7 @@ To
 
 `SNAPCLIENT_OPTS="-h <ip>"`
 
-# Installation of this project
+# Installation of this project on the server
 
 Install Git
 
