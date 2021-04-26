@@ -11,7 +11,7 @@ sudo ./install.sh
 
 # Configuration
 
-Change start and stop hour in `streaming.bash`
+Change start and stop hour in `streaming.conf`
 
 # Troubleshooting
 
