@@ -118,12 +118,9 @@ If ip of the server is fixed, configure it in the client:
 
 `sudo nano /etc/default/snapclient`
 
-Change 
-`SNAPCLIENT_OPTS=""`
+Change `SNAPCLIENT_OPTS=""`
 
-To
-
-`SNAPCLIENT_OPTS="-h <ip>"`
+To `SNAPCLIENT_OPTS="-h <ip>"`
 
 # Installation of this project on the server
 
