@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# What hours when streaming should start and stop
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-START=8
-STOP=11
+# What hours when streaming should start and stop are configured in streaming.conf
+source $DIR/streaming.conf
 
 H=$(date +%H)
 if (( $START <= 10#$H && 10#$H < $STOP )); then 
