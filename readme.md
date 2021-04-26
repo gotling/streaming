@@ -1,7 +1,12 @@
 # Streaming
 Start and stop Snapcast server depending on the hour.
 
+Instructions on how to set up a server and a client.
+The server will be using a HiFi Berry DAC+ADC to get sound from line-in.
+
 # Prerequisite
+
+The first steps are the same for both server and client.
 
 ## Operating system
 
@@ -31,10 +36,67 @@ Password: **raspberry**
 
 ## Configure OS
 
+*Update software*
 
+`sudo apt update && sudo apt -y upgrade`
 
-## Configure HiFi Berry DAC+ADC
+*Change settings*
 
+`sudo raspi-config`
+
+*1 System Options, S3 Password*
+
+Set a new password. This will be used for SSH access.
+
+*1 System Options, S4 Hostname*
+
+This is how the pi is shown in the network.
+
+Hostname: **streaming-server** or **streaming-kitchen**
+
+*5 Localisation Options, L1 Locale*
+
+Just select OK to accept defaults and generate locale for **en_GB.UTF-8**.
+
+*5 Localisation Options, L2 Timezone*
+
+Choose correct time zone.
+
+When everything is set, select Finish and reboot the device.
+
+## Configure server
+
+*Enable HiFi Berry DAC+ADC*
+
+Edit `/boot/config.txt`
+
+Comment `dtparam=audio=on`
+
+Add `dtoverlay=hifiberry-dacplusadc`
+
+*Install Snapcast Server*
+
+Download the latest snapserver armhf.deb from https://github.com/badaix/snapcast/releases/latest.
+
+`wget https://github.com/badaix/snapcast/releases/download/v0.24.0/snapserver_0.24.0-1_armhf.deb`
+
+Install it:
+
+`sudo apt install ./snapserver*.deb`
+
+*Configure Snapcast server*
+
+Edit `/etc/snapserver.conf`
+
+In section *[stream]*
+
+Comment `source = pipe:///tmp/snapfifo?name=default`
+
+Add `source = alsa://?name=analog&device=hw:0,0&send_silence=false&idle_threshold=100`
+
+Uncomment *sampleformat* and change to `sampleformat = 44100:16:2`
+
+## Configure client
 
 # Installation
 ```
