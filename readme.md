@@ -62,7 +62,7 @@ Just select OK to accept defaults and generate locale for **en_GB.UTF-8**.
 
 Choose correct time zone.
 
-When everything is set, select Finish and reboot the device.
+When everything is set, select *Finish* and reboot the device.
 
 ## Configure server
 
@@ -92,13 +92,38 @@ In section *[stream]*
 
 Comment `source = pipe:///tmp/snapfifo?name=default`
 
-Add `source = alsa://?name=analog&device=hw:0,0&send_silence=false&idle_threshold=100`
-
-Uncomment *sampleformat* and change to `sampleformat = 44100:16:2`
+Add `source = alsa://?name=analog&sampleformat=44100:16:2&device=hw:0,0&send_silence=false&idle_threshold=100`
 
 ## Configure client
 
-# Installation
+*Install Snapcast Client*
+
+Download the latest snapclient without-pulse_armhf.deb from https://github.com/badaix/snapcast/releases/latest.
+
+`wget https://github.com/badaix/snapcast/releases/download/v0.24.0/snapclient_0.24.0-1_without-pulse_armhf.deb`
+
+Install it:
+
+`sudo apt install ./snapclient*.deb`
+
+Increase sound volume:
+
+`alsamixer`
+
+Change it to 86% or higher.
+
+*If ip for server is made static, configure it in the client*
+
+`sudo nano /etc/default/snapclient`
+
+Change 
+`SNAPCLIENT_OPTS=""`
+
+To
+
+`SNAPCLIENT_OPTS="-h <ip>"`
+
+# Installation of this project
 
 Install Git
 
@@ -124,6 +149,13 @@ Reboot and make sure snapcast is started or not according to setting.
 ## Show service log
 
 `journalctl -u streaming.service`
+
+## Show network usage
+
+```
+sudo apt install iftop
+sudo iftop
+```
 
 # Links
 
