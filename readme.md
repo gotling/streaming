@@ -99,6 +99,13 @@ Uncomment *sampleformat* and change to `sampleformat = 44100:16:2`
 ## Configure client
 
 # Installation
+
+Install Git
+
+`sudo apt install -y git`
+
+Check out and install this project.
+
 ```
 cd /opt
 sudo git clone https://github.com/gotling/streaming.git
@@ -109,6 +116,8 @@ sudo ./install.sh
 # Configuration
 
 Change start and stop hour in `streaming.conf`
+
+Reboot and make sure snapcast is started or not according to setting.
 
 # Troubleshooting
 
