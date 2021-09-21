@@ -143,6 +143,18 @@ Change start and stop hour in `streaming.conf`
 
 Reboot and make sure snapcast is started or not according to setting.
 
+# Write protect SD cards
+
+To prevent SD card wear and tear, write protection can be enabled using **Overlay File System**. With that enabled, all changes made to the system like writing to log files will be lost when the machine is restarted.
+
+`sudo raspi-config`
+
+## 4 Performance Options, P3 Overlay File System
+
+Select **Yes** when asked to write protect boot partition.
+
+To disable write protection, run the command again.
+
 # Troubleshooting
 
 ## Show service log
