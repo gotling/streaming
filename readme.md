@@ -163,6 +163,14 @@ Every monday at two in the morning.
 
     0 2 * * 1 /sbin/shutdown -r now
 
+# Disable loging on client
+
+Snapclient is loging every second that it is retrying connection to the server.
+
+`sudo nano /etc/default/snapclient`
+
+    SNAPCLIENT_OPTS="--logsink null"
+
 # Troubleshooting
 
 ## Show service log
