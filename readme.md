@@ -151,9 +151,9 @@ To prevent SD card wear and tear, write protection can be enabled using **Overla
 
 ## 4 Performance Options, P3 Overlay File System
 
-Select **Yes** when asked to write protect boot partition.
+Select **Yes** when asked to enable Overlay File System and write protect boot partition.
 
-To disable write protection, run the command again.
+To disable write protection, run the command again but instead answer **No**.
 
 # Troubleshooting
 
