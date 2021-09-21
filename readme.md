@@ -155,6 +155,14 @@ Select **Yes** when asked to enable Overlay File System and write protect boot p
 
 To disable write protection, run the command again but instead answer **No**.
 
+# Automatically restart once a week
+
+Every monday at two in the morning.
+
+`sudo crontab -e`
+
+    0 2 * * 1 /sbin/shutdown -r now
+
 # Troubleshooting
 
 ## Show service log
